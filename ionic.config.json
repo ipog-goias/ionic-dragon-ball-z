@@ -1,0 +1,7 @@
+{
+  "name": "ionic-dragon-ball-z",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
