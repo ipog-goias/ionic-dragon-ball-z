@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { PlanetsPage } from './planets.page';
+import { PlanetsListComponent } from './planets-list/planets-list.component';
+import { PlanetResolveById, PlanetResolveDefaultList, PlanetResolvePagination } from './planets.service';
+import { PlanetsDetailComponent } from './planets-detail/planets-detail.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PlanetsPage
+    component: PlanetsListComponent,
+    resolve: {data: PlanetResolveDefaultList}
+  },
+  {
+    path: 'edit/:id',
+    component: PlanetsDetailComponent,
+    resolve: {data: PlanetResolveById}
   }
 ];
 

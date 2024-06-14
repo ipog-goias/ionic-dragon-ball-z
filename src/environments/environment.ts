@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://dragonball-api.com/api/characters'
+  url: 'https://dragonball-api.com/api'
 };
 
 /*

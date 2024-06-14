@@ -12,20 +12,22 @@ export class CharactersService {
 
   constructor(private http: HttpClient) { }
 
+  url: string = `${environment.url}/characters`;
+
   getCharactersDefault(): Observable<PaginationCharacter>{
-    console.log(environment.url);
-    return this.http.get<PaginationCharacter>(environment.url);//limite padrão da API é 10 registros por consulta.
+    console.log(this.url);
+    return this.http.get<PaginationCharacter>(this.url);//limite padrão da API é 10 registros por consulta.
   }
 
   getCharacters(page: number, limit: number): Observable<PaginationCharacter>{
 
-    let url = `${environment.url}?page=${page}&limit=${limit}`;
+    let url = `${this.url}?page=${page}&limit=${limit}`;
     return this.http.get<PaginationCharacter>(url);
   }
 
   getCharacterById(id: number): Observable<PaginationCharacter>{
 
-    let url = `${environment.url}/${id}`;
+    let url = `${this.url}/${id}`;
     return this.http.get<PaginationCharacter>(url);
   }
 }
